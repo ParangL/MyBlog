@@ -1,0 +1,25 @@
+﻿@model PostViewModel
+
+<form asp-controller="Home" asp-action="Search" method="post">
+
+
+    <input type="text" asp-for="SearchValue" />
+    <select asp-for="@Model.CurrentCategory" asp-items="@Model.CategoryList"></select>
+
+    <input type="submit" value="Search" />
+
+</form>
+
+<div>
+    <ul>
+        @foreach (var post in Model.SearchPosts)
+        {
+
+            <li>
+                <a asp-controller="Home" asp-action="Post" asp-route-id="@post.PostId">@post.Title</a>
+                <br />
+            </li>
+        }
+    </ul>
+
+</div>

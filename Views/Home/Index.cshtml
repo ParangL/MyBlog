@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MrsTaster.Models.Post>
+
+@{ 
+
+}
+<img src="~/content/static/startbg.jpg" width="450"/>
+<div>
+    <ul>
+        @foreach (var post in Model.OrderBy(item => item.Created))
+        {
+            <li>
+                <a asp-controller="Home" asp-action="Post" asp-route-id="@post.PostId">
+                    @post.Title @post.Created
+                </a>
+            </li>
+        }
+    </ul>
+</div>

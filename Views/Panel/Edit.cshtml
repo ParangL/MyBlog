@@ -1,0 +1,38 @@
+﻿@model MrsTaster.ViewModels.PostViewModel
+
+@{
+
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/JS/MyJSfile.js" defer></script>
+
+<div>
+    <form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input asp-for="PostId" type="hidden" />
+        <div>
+            <label>Title</label>
+            <input asp-for="Title" maxlength="50" />
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div>
+            <label>Body</label>
+            <input asp-for="Body" maxlength="2000" />
+            <span asp-validation-for="Body"></span>
+        </div>
+
+        <div>
+            <label>Category</label>
+            <select asp-for="@Model.CurrentCategory" asp-items="@Model.CategoryList"></select>
+
+        </div>
+       
+        <div>
+            <label>Created</label>
+            <input asp-for="Created" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>

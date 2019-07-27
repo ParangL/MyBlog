@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MrsTaster.Models.Post>
+
+@{
+
+}
+
+<h3>Admin panel!</h3>
+
+<div>
+    <ul>
+        @foreach (var post in Model.OrderBy(item => item.Created))
+        {
+        <li>
+            @post.Title @post.Created
+            -
+            <a asp-controller="Panel" asp-action="Edit" asp-route-id="@post.PostId">
+                Edit post
+            </a>
+            -
+            <a asp-controller="Panel" asp-action="Delete" asp-route-id="@post.PostId">
+                Delete post
+            </a>
+        </li>
+        }
+    </ul>
+</div>
